@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GenAI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+            background: linear-gradient(to right, #f0f4f8, #d9e4f5);
+        }
+        h2 {
+            text-align: center;
+            color: #2b547e;
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin-top: 10px;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        input[type=submit] {
+            padding: 10px 25px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #2b547e;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #1d3a5f;
+        }
+        .chat-box {
+            margin-top: 30px;
+            border: 2px solid #ccc;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .loading {
+            cursor: progress;
+        }
+    </style>
+    <script>
+        function showLoadingCursor() {
+            document.body.classList.add("loading");
+        }
+    </script>
+</head>
+<body>
+<h2>GenAI Chatbot</h2>
+<form action="/chat-ask" method="post" onsubmit="showLoadingCursor()">
+    <label for="question">Enter your question:</label>
+    <textarea id="question" name="question" th:text="${question}"></textarea>
+    <br/>
+    <input type="submit" value="Ask">
+</form>
+
+<div class="chat-box" th:if="${response}">
+    <strong>Response:</strong>
+    <p th:text="${response}"></p>
+</div>
+</body>
+</html>
