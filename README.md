@@ -1,2 +1,2 @@
-# genai-chatbot-spring
-Spring Boot chatbot using OpenAI and H2
+# Gen-AI-chatbot-spring
+Spring Boot Chatbot using OpenAI and H2 Database with a Java Microservice Architecture.
